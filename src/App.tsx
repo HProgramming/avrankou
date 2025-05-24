@@ -4,7 +4,11 @@ import Home from "./pages/home.tsx";
 
 const App= ()=> {
 
-  return (<Home></Home>);
+  return (
+      <div>
+        <Home></Home>
+      </div>
+    );
 }
 
 export default App
