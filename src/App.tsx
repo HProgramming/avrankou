@@ -5,7 +5,7 @@ import Home from "./pages/home.tsx";
 const App= ()=> {
 
   return (
-      <div>
+      <div className="scroll-smooth">
         <Home></Home>
       </div>
     );
