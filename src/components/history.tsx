@@ -1,30 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
 
 const History = () => {
     const scrollRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        scrollRefs.current.forEach((ref) => {
-            if (ref) observer.observe(ref);
-        });
-
-        return () => {
-            scrollRefs.current.forEach((ref) => {
-                if (ref) observer.unobserve(ref);
-            });
-        };
-    }, []);
+    // Use the custom hook for intersection observer
+    useIntersectionObserver(scrollRefs);
 
     return (
         <div className={`bg-gray-200 p-10 mx-auto`}>
@@ -34,7 +15,7 @@ const History = () => {
                     ref={(el) => (scrollRefs.current[0] = el)} 
                     className={`w-full animate-scroll`}
                 >
-                    <h1 className="heading-primary mb-8 text-gray-700">Histoire</h1>
+                    <h1 className="heading-primary mb-8  text-primary">Historique</h1>
                     <p className={`text-lg font-medium leading-9 mb-8`}>La ville de Cotonou a été créée en 1830 sur
                         initiative du Roi Guézo, illustre roi d'Abomey. Selon l'une des légendes, son nom initial est
                         «Kutonou», signifiant «la lagune de la mort», en raison du rôle de carrefour que la ville a joué
@@ -76,4 +57,3 @@ const History = () => {
 };
 
 export default History;
-

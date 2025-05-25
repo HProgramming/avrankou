@@ -4,6 +4,8 @@
 @theme {
     --font-sans: 'Montserrat', sans-serif;
     --font-montserrat: 'Montserrat', sans-serif;
+    --color-primary: #4F4A4A;
+    --color-blue-secondary:#A3D6F0;
 }
 @layer components {
     .heading-primary {
