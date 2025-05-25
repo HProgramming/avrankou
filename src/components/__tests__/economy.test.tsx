@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import History from '../history';
+import Economy from '../economy';
 
 // Mock IntersectionObserver
 class MockIntersectionObserver {
@@ -40,7 +40,7 @@ class MockIntersectionObserver {
   }
 }
 
-describe('History component', () => {
+describe('Economy component', () => {
   let originalIntersectionObserver: typeof IntersectionObserver;
   let mockIntersectionObserver: MockIntersectionObserver;
 
@@ -61,27 +61,25 @@ describe('History component', () => {
   });
 
   it('renders without crashing', () => {
-    render(<History />);
-    expect(screen.getByText('Historique')).toBeInTheDocument();
+    render(<Economy />);
+    expect(screen.getByText('Economie')).toBeInTheDocument();
   });
 
   it('renders the correct headings and paragraphs', () => {
-    render(<History />);
-    expect(screen.getByRole('heading', { name: 'Historique' })).toBeInTheDocument();
-    expect(screen.getByText(/La ville de Cotonou a été créée en 1830/)).toBeInTheDocument();
-    expect(screen.getByText(/A la fin du 19ème siècle, Cotonou s'est développé/)).toBeInTheDocument();
-    expect(screen.getByText(/A partir du noyau originel des Toffins/)).toBeInTheDocument();
-    expect(screen.getByText(/Actuellement, Cotonou est devenu une ville/)).toBeInTheDocument();
+    render(<Economy />);
+    expect(screen.getByRole('heading', { name: 'Economie' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Situation économique' })).toBeInTheDocument();
+    expect(screen.getByText(/Les activités économiques exercées dans la ville de/)).toBeInTheDocument();
+    expect(screen.getByText(/L'artisanat et le commerce constituent la base de/)).toBeInTheDocument();
   });
 
-  it('renders the images with correct alt text', () => {
-    render(<History />);
-    expect(screen.getByRole('img', { name: 'Ilustration historique' })).toBeInTheDocument();
+  it('renders the image with correct alt text', () => {
+    render(<Economy />);
     expect(screen.getByRole('img', { name: 'Fresque mural' })).toBeInTheDocument();
   });
 
   it('sets up IntersectionObserver correctly', () => {
-    render(<History />);
+    render(<Economy />);
     expect(window.IntersectionObserver).toHaveBeenCalledTimes(1);
     expect(window.IntersectionObserver).toHaveBeenCalledWith(
       expect.any(Function),
@@ -90,7 +88,7 @@ describe('History component', () => {
   });
 
   it('observes all scroll elements', () => {
-    const { container } = render(<History />);
+    const { container } = render(<Economy />);
     const animatedElements = container.querySelectorAll('.animate-scroll, .animate-scale-in');
 
     // Check that all animated elements are being observed
@@ -98,7 +96,7 @@ describe('History component', () => {
   });
 
   it('adds visible class to elements when they intersect', () => {
-    const { container } = render(<History />);
+    const { container } = render(<Economy />);
 
     // Simulate intersection
     mockIntersectionObserver.triggerIntersection(true);
