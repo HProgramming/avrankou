@@ -8,16 +8,16 @@ const Economy = () => {
     useIntersectionObserver(scrollRefs);
 
     return (
-        <div className={`bg-white p-10 mx-auto`}>
-            <h1 className="heading-primary mb-8 text-primary">Economie</h1>
+        <div className={`bg-white p-4 sm:p-6 md:p-10 mx-auto`}>
+            <h1 className="heading-primary mb-4 sm:mb-6 md:mb-8 text-primary">Economie</h1>
 
-            <div className={`grid md:grid-cols-2 gap-4`}>
+            <div className={`grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8`}>
                 <div
                     ref={(el) => (scrollRefs.current[0] = el)}
                     className={`animate-scale-in animate-delay-300`}
                 >
                     <div className={`w-full rounded-4xl`}>
-                        <img src={`https://cotonou.mairie.bj/public/medias/economie-cotonou-1688213145.png`} className={``}
+                        <img src={`https://cotonou.mairie.bj/public/medias/economie-cotonou-1688213145.png`} className={`w-full h-auto`}
                              alt={`Fresque mural`}/>
                     </div>
                 </div>
@@ -25,8 +25,8 @@ const Economy = () => {
                     ref={(el) => (scrollRefs.current[1] = el)}
                     className={`animate-scroll animate-delay-300`}
                 >
-                    <h1 className="heading-primary mb-8 text-primary">Situation économique</h1>
-                    <p className={`text-lg font-medium leading-9 mb-8`}>Les activités économiques exercées dans la ville de
+                    <h1 className="heading-primary mb-4 sm:mb-6 md:mb-8 text-primary">Situation économique</h1>
+                    <p className={`text-base sm:text-lg font-medium leading-7 sm:leading-8 md:leading-9 mb-4 sm:mb-6 md:mb-8`}>Les activités économiques exercées dans la ville de
                         Cotonou relèvent surtout du secteur tertiaire,
                         tel que le commerce et les services, qui sont appuyées par quelques industries manufacturières.
                         Quant aux activités agricoles, elles n'occupent qu'une petite frange de la population qui pratique

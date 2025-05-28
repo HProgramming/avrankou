@@ -37,7 +37,7 @@ const TouristicAtraction = () => {
                     <div
                         key={index}
                         style={{backgroundImage: `url(${attraction.imageUrl})`}}
-                        className={` h-[400px] w-96 bg-cover bg-blend-overlay rounded-md bg-black/15 bg-center text-white text-center flex justify-center items-center`}
+                        className={` h-[400px] w-full bg-cover bg-blend-overlay rounded-md bg-black/15 bg-center text-white text-center flex justify-center items-center`}
                     >
                             <h5 className={`text-2xl font-semibold text-white`}>{attraction.name}</h5>
 

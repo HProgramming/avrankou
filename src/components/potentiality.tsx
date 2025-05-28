@@ -47,10 +47,10 @@ const Potentiality = () => {
                 </h1>
                 <div
                     ref={(el) => (scrollRefs.current[1] = el)}
-                    className={`absolute -top-[125] left-28 w-5/6 min-h-32 rounded-xl py-7 bg-white flex animate-scale-in animate-delay-500`}>
+                    className={`absolute -top-[125] left-0 right-0 mx-auto w-11/12 sm:w-5/6 min-h-32 rounded-xl py-7 bg-white flex flex-col md:flex-row animate-scale-in animate-delay-500`}>
                     <div
                         ref={(el) => (scrollRefs.current[2] = el)}
-                        className={`h-full w-44 rounded-l-xl animate-scroll animate-delay-700`}
+                        className={`w-full md:w-44 rounded-t-xl md:rounded-t-none md:rounded-l-xl flex md:block justify-center animate-scroll animate-delay-700`}
                     >
                         {POTENTIALITIES.map((p, index) => {
                             return (
