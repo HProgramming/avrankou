@@ -14,6 +14,7 @@ const useIntersectionObserver = (
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Add the 'visible' class to the target element
             entry.target.classList.add('visible');
           }
         });
@@ -24,7 +25,14 @@ const useIntersectionObserver = (
     const currentRefs = refs.current;
     if (currentRefs) {
       currentRefs.forEach((ref) => {
-        if (ref) observer.observe(ref);
+        if (ref) {
+          // Make sure the element has the 'visible' class if it's already intersecting
+          // This ensures elements are visible even if the observer callback hasn't fired yet
+          if (ref.getBoundingClientRect().top < window.innerHeight) {
+            ref.classList.add('visible');
+          }
+          observer.observe(ref);
+        }
       });
     }
 
