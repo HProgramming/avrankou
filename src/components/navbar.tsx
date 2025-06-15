@@ -42,7 +42,7 @@ const Navbar = () => {
                 </button>
 
                 {isDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
+                    <div className="absolute top-full left-0 mt-0 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
                     <a
                         href="/decouvrir-avrankou"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-yellow-600 transition-colors duration-200 font-medium"
@@ -132,7 +132,7 @@ const Navbar = () => {
                 </button>
 
                 {isParticipezDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
+                    <div className="absolute top-full right-0 mt-0 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
                     <a
                         href="/signaler"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-yellow-600 transition-colors duration-200"
