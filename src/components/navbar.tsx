@@ -59,6 +59,7 @@ const Navbar = () => {
                 </div>
             </div>
 
+            {/* Main navbar */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20 lg:h-24">
                 <div className="flex items-center">
@@ -86,126 +87,6 @@ const Navbar = () => {
                     <button className={`px-6 py-5 text-gray-800 hover:text-gray-600 font-semibold transition-all duration-200 flex items-center border-b-4 ${isDropdownOpen ? 'border-gray-700' : 'border-transparent hover:border-gray-700'}`}>
                         La Commune
                     </button>
-
-                    {isDropdownOpen && (
-                        <div className="absolute top-full w-screen bg-white shadow-xl border border-gray-200 py-12 z-50" style={{left: '50%', transform: 'translateX(-50%)'}}>
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <div className="grid grid-cols-3 gap-12">
-                                    <div className="px-4">
-                                        <h3 className="text-lg font-semibold text-gray-900 mb-6">Découvrir</h3>
-                                        <a
-                                            href="/decouvrir-avrankou"
-                                            className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-semibold border-l-4 border-transparent hover:border-blue-600 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Découvrir Avrankou</div>
-                                                    <div className="text-sm text-gray-500">Présentation générale</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            href="/histoire"
-                                            className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                                </svg>
-                                                <div>
-                                                    <div>Historique</div>
-                                                    <div className="text-sm text-gray-500">Histoire de la commune</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div className="px-4">
-                                        <h3 className="text-lg font-semibold text-gray-900 mb-6">Économie & Développement</h3>
-                                        <a
-                                            href="/economie"
-                                            className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                                </svg>
-                                                <div>
-                                                    <div>Économie</div>
-                                                    <div className="text-sm text-gray-500">Secteurs économiques</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            href="/potentialites"
-                                            className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Potentialités</div>
-                                                    <div className="text-sm text-gray-500">Opportunités de développement</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            href="/attractions"
-                                            className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Attractions touristiques</div>
-                                                    <div className="text-sm text-gray-500">Sites à visiter</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div className="px-4">
-                                        <h3 className="text-lg font-semibold text-gray-900 mb-6">Territoire</h3>
-                                        <a
-                                            href="/geographie"
-                                            className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Géographie</div>
-                                                    <div className="text-sm text-gray-500">Localisation et relief</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            href="/demographie"
-                                            className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Démographie</div>
-                                                    <div className="text-sm text-gray-500">Population et statistiques</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                     </div>
 
                     <a
@@ -238,64 +119,6 @@ const Navbar = () => {
                     <button className={`px-6 py-5 text-gray-800 hover:text-gray-600 font-semibold transition-all duration-200 flex items-center border-b-4 ${isParticipezDropdownOpen ? 'border-gray-700' : 'border-transparent hover:border-gray-700'}`}>
                         Participez
                     </button>
-
-                    {isParticipezDropdownOpen && (
-                        <div className="absolute top-full w-screen bg-white shadow-xl border border-gray-200 py-12 z-50" style={{left: '50%', transform: 'translateX(-50%)'}}>
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <div className="grid grid-cols-2 gap-12">
-                                    <div className="px-4">
-                                        <h3 className="text-lg font-semibold text-gray-900 mb-6">Services Citoyens</h3>
-                                        <a
-                                            href="/signaler"
-                                            className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium border-l-4 border-transparent hover:border-blue-600 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Signaler</div>
-                                                    <div className="text-sm text-gray-500">Signaler un problème</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="px-4">
-                                        <h3 className="text-lg font-semibold text-gray-900 mb-6">Contact Autorités</h3>
-                                        <a
-                                            href="/ecrire-au-maire"
-                                            className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium border-l-4 border-transparent hover:border-blue-600 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Écrire au maire</div>
-                                                    <div className="text-sm text-gray-500">Contactez le maire</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            href="/ecrire-au-secretaire-executif"
-                                            className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium border-l-4 border-transparent hover:border-blue-600 rounded"
-                                        >
-                                            <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                                </svg>
-                                                <div>
-                                                    <div>Écrire au sécrétaire exécutif</div>
-                                                    <div className="text-sm text-gray-500">Contactez le sécrétaire</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                     </div>
                 </nav>
 
@@ -461,6 +284,194 @@ const Navbar = () => {
                 </div>
                 )}
             </div>
+
+            {/* Full-width Mega Menu for La Commune - Direct child of header */}
+            {isDropdownOpen && (
+                <div 
+                    className="absolute left-0 right-0 top-full bg-white shadow-xl border-t border-gray-200 py-12 z-50 w-full"
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                    onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="grid grid-cols-3 gap-12">
+                            <div className="px-4">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-6">Découvrir</h3>
+                                <a
+                                    href="/decouvrir-avrankou"
+                                    className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-semibold border-l-4 border-transparent hover:border-blue-600 rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <div>
+                                            <div>Découvrir Avrankou</div>
+                                            <div className="text-sm text-gray-500">Présentation générale</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a
+                                    href="/histoire"
+                                    className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                        </svg>
+                                        <div>
+                                            <div>Historique</div>
+                                            <div className="text-sm text-gray-500">Histoire de la commune</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div className="px-4">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-6">Économie & Développement</h3>
+                                <a
+                                    href="/economie"
+                                    className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                        </svg>
+                                        <div>
+                                            <div>Économie</div>
+                                            <div className="text-sm text-gray-500">Secteurs économiques</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a
+                                    href="/potentialites"
+                                    className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                        </svg>
+                                        <div>
+                                            <div>Potentialités</div>
+                                            <div className="text-sm text-gray-500">Opportunités de développement</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a
+                                    href="/attractions"
+                                    className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <div>
+                                            <div>Attractions touristiques</div>
+                                            <div className="text-sm text-gray-500">Sites et monuments</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div className="px-4">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-6">Territoire</h3>
+                                <a
+                                    href="/geographie"
+                                    className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <div>
+                                            <div>Géographie</div>
+                                            <div className="text-sm text-gray-500">Situation et relief</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a
+                                    href="/demographie"
+                                    className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                        <div>
+                                            <div>Démographie</div>
+                                            <div className="text-sm text-gray-500">Population et statistiques</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Full-width Mega Menu for Participez - Direct child of header */}
+            {isParticipezDropdownOpen && (
+                <div 
+                    className="absolute left-0 right-0 top-full bg-white shadow-xl border-t border-gray-200 py-12 z-50 w-full"
+                    onMouseEnter={() => setIsParticipezDropdownOpen(true)}
+                    onMouseLeave={() => setIsParticipezDropdownOpen(false)}
+                >
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="grid grid-cols-3 gap-12">
+                            <div className="px-4">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-6">Services citoyens</h3>
+                                <a
+                                    href="/signaler"
+                                    className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium border-l-4 border-transparent hover:border-blue-600 rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-5 h-5 mr-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.664-.833-2.464 0L4.34 16.5C3.57 17.333 4.532 19 6.072 19z" />
+                                        </svg>
+                                        <div>
+                                            <div>Signaler un problème</div>
+                                            <div className="text-sm text-gray-500">Voirie, éclairage, propreté</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div className="px-4">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-6">Contact institutionnel</h3>
+                                <a
+                                    href="/ecrire-au-maire"
+                                    className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium border-l-4 border-transparent hover:border-blue-600 rounded mb-3"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                        <div>
+                                            <div>Écrire au maire</div>
+                                            <div className="text-sm text-gray-500">Contacts et suggestions</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a
+                                    href="/ecrire-au-secretaire-executif"
+                                    className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium border-l-4 border-transparent hover:border-blue-600 rounded"
+                                >
+                                    <div className="flex items-center">
+                                        <svg className="w-5 h-5 mr-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                        <div>
+                                            <div>Secrétaire exécutif</div>
+                                            <div className="text-sm text-gray-500">Questions administratives</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </header>
 
         {/* Search Overlay */}
