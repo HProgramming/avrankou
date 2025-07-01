@@ -99,7 +99,7 @@ const Navbar = () => {
                                                 <div className="px-4">
                                                     <h3 className="text-lg font-semibold text-gray-900 mb-6">Découvrir</h3>
                                                     <a
-                                                        href="/decouvrir-avrankou"
+                                                        href="/discover"
                                                         className="block px-4 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200 font-semibold border-l-4 border-transparent hover:border-green-600 rounded"
                                                     >
                                                         <div className="flex items-center">
@@ -121,7 +121,7 @@ const Navbar = () => {
                                                         </div>
                                                     </a>
                                                     <a
-                                                        href="/histoire"
+                                                        href="/history"
                                                         className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-green-600 transition-colors duration-200 rounded"
                                                     >
                                                         <div className="flex items-center">
@@ -142,10 +142,9 @@ const Navbar = () => {
                                                 </div>
 
                                                 <div className="px-4">
-                                                    <h3 className="text-lg font-semibold text-gray-900 mb-6">Économie &
-                                                        Développement</h3>
+                                                    <h3 className="text-lg font-semibold text-gray-900 mb-6">Économie</h3>
                                                     <a
-                                                        href="/economie"
+                                                        href="/economy"
                                                         className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-green-600 transition-colors duration-200 rounded"
                                                     >
                                                         <div className="flex items-center">
@@ -164,7 +163,7 @@ const Navbar = () => {
                                                         </div>
                                                     </a>
                                                     <a
-                                                        href="/potentialites"
+                                                        href="/potentialities"
                                                         className="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-green-600 transition-colors duration-200 rounded"
                                                     >
                                                         <div className="flex items-center">
@@ -420,7 +419,7 @@ const Navbar = () => {
                                     {isDropdownOpen && (
                                         <div className="bg-white border border-gray-200 rounded-lg mx-4 mt-2 shadow-sm">
                                             <a
-                                                href="/decouvrir-avrankou"
+                                                href="/discover"
                                                 className="block px-4 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 font-semibold border-l-4 border-transparent hover:border-green-600 transition-colors duration-200"
                                             >
                                                 Découvrir Avrankou
@@ -565,6 +564,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
+                    <FlagLine/>
 
                     {/* Search Form */}
                     <div className="flex-1 flex items-start justify-center pt-16 pb-8 px-4 sm:px-6 lg:px-8">

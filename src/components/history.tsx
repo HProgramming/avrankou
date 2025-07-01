@@ -11,7 +11,7 @@ const History = () => {
     useIntersectionObserver(scrollRefs);
 
     return (
-        <div className={`bg-gray-200 p-10 mx-auto`}>
+        <section className={`bg-gray-200 p-10 mx-auto`}>
             <div className={`grid md:grid-cols-2 gap-4`}>
 
                 <div
@@ -60,7 +60,7 @@ const History = () => {
                         <span className={`italic font-semibold`}>Tolikunkanwxé</span> qui regroupe les peuples <span className={`italic font-semibold`}>toli </span>du Bénin et de la diaspora.</p>
                 </div>
             </div>
-        </div>
+        </section>
     )
 };
 

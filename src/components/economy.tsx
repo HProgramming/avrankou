@@ -9,7 +9,7 @@ const Economy = () => {
     useIntersectionObserver(scrollRefs);
 
     return (
-        <div className={`bg-white p-10 mx-auto`}>
+        <section className={`bg-white p-10 mx-auto`} >
             <h1 className="heading-primary mb-8 text-primary">Economie</h1>
 
             <div className={`grid md:grid-cols-2 gap-4`}>
@@ -40,7 +40,7 @@ const Economy = () => {
         
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
