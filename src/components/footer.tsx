@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+import FlagLine from './FlagLine';
+
 const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white py-8">
-            <div className="container mx-auto px-4">
+        <footer className="bg-gray-800 text-white">
+            <FlagLine height="h-2" />
+            <div className="container mx-auto px-4 py-8">
                 <div className="flex flex-col items-center space-y-6">
                     <div className="flex space-x-6">
                         <a
@@ -65,12 +69,12 @@ const Footer = () => {
                     <div className="text-center">
                         <p className="text-lg text-gray-300">Commune de Avrankou &copy; {new Date().getFullYear()} – Tous les droits réservés</p>
                         <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 mt-3 text-sm text-gray-400">
-                            <a href="/mentions-legales" className="hover:text-white transition-colors duration-200">
+                            <Link to="/mentions-legales" className="hover:text-white transition-colors duration-200">
                                 Mentions légales
-                            </a>
-                            <a href="/politique-confidentialite" className="hover:text-white transition-colors duration-200">
+                            </Link>
+                            <Link to="/politique-confidentialite" className="hover:text-white transition-colors duration-200">
                                 Politique de confidentialité
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

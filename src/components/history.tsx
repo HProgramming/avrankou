@@ -1,8 +1,6 @@
-
-import { useRef } from 'react';
-
-        
+import {useRef} from 'react';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
+import BackButton from './BackButton';
 
 const History = () => {
     const scrollRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -11,15 +9,29 @@ const History = () => {
     useIntersectionObserver(scrollRefs);
 
     return (
-        <section className={`bg-gray-200 p-10 mx-auto`}>
-            <div className={`grid md:grid-cols-2 gap-4`}>
+        <section className={`bg-gray-50 min-h-screen`}>
+            {/* Header */}
+            <div className="bg-emerald-700 text-white py-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <BackButton className="mb-6" />
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                        Histoire d'Avrankou
+                    </h1>
+                    <p className="text-lg text-emerald-100 max-w-3xl">
+                        Découvrez les origines et l'évolution de la commune d'Avrankou,
+                        de ses premiers habitants à la symbiose culturelle actuelle.
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className={`grid md:grid-cols-2 gap-8`}>
 
                 <div
                     ref={(el) => (scrollRefs.current[0] = el)}
                     className={`w-full animate-scroll`}
                 >
-
-                    <h1 className="heading-primary mb-8  text-primary">Histoirique</h1>
                     <p className={`text-lg font-medium leading-9 mb-8`}>
                         L'histoire des origines de cette commune fait état de ce que, quelques siècles plus tôt
                         un Nago nommé Olafa, surnommé « Avlan » et originaire de Sakété, fut le premier habitant
@@ -58,6 +70,7 @@ const History = () => {
                         entités ethniques une longue histoire socioculturelle. Leurs traditions et leurs coutumes ont
                         fini par créer une symbiose culturelle à travers le festival identitaire et communautaire
                         <span className={`italic font-semibold`}>Tolikunkanwxé</span> qui regroupe les peuples <span className={`italic font-semibold`}>toli </span>du Bénin et de la diaspora.</p>
+                </div>
                 </div>
             </div>
         </section>
