@@ -1,8 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
-import BackButton from '../components/BackButton';
-import { attractions } from '../components/touristic_atraction';
+import BackButton from '../../components/BackButton.tsx';
+import {attractions} from "./touristic_attraction.ts";
 
-const AttractionDetail = () => {
+const Attraction_detail = () => {
     const { id } = useParams<{ id: string }>();
 
     const attraction = attractions.find((a) => a.id === id);
@@ -221,4 +221,4 @@ const AttractionDetail = () => {
     );
 };
 
-export default AttractionDetail;
+export default Attraction_detail;

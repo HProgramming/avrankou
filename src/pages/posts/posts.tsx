@@ -1,107 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BackButton from '../components/BackButton';
+import BackButton from '../../components/BackButton.tsx';
+import {posts} from "./posts.ts";
+import {categories, categoryColors} from "./post_categories.ts";
 
-interface Article {
-    id: string;
-    title: string;
-    excerpt: string;
-    content: string;
-    category: string;
-    imageUrl: string;
-    author: string;
-    date: string;
-    readTime: string;
-    featured?: boolean;
-}
 
-const articles: Article[] = [
-    {
-        id: 'inauguration-centre-sante',
-        title: "Inauguration du nouveau centre de santé d'Avrankou",
-        excerpt: "Le Maire a inauguré ce mardi le nouveau centre de santé communal, un investissement majeur pour améliorer l'accès aux soins des populations.",
-        content: "",
-        category: "Santé",
-        imageUrl: "/foret.jpg",
-        author: "Service Communication",
-        date: "2024-12-20",
-        readTime: "3 min",
-        featured: true
-    },
-    {
-        id: 'fete-vodoun-2025',
-        title: "Préparatifs de la fête nationale du Vodoun 2025",
-        excerpt: "La commune se prépare activement pour célébrer la fête nationale du Vodoun le 10 janvier prochain avec un programme riche en événements culturels.",
-        content: "",
-        category: "Culture",
-        imageUrl: "/vodoun.JPG",
-        author: "Service Culturel",
-        date: "2024-12-18",
-        readTime: "4 min"
-    },
-    {
-        id: 'rehabilitation-routes',
-        title: "Réhabilitation des routes communales : bilan positif",
-        excerpt: "Les travaux de réhabilitation des principales routes de la commune avancent bien. Plus de 15 km de voirie ont été rénovés cette année.",
-        content: "",
-        category: "Infrastructure",
-        imageUrl: "/riviere_noire.jpg",
-        author: "Service Technique",
-        date: "2024-12-15",
-        readTime: "5 min"
-    },
-    {
-        id: 'rentree-scolaire',
-        title: "Rentrée scolaire 2024-2025 : les nouveautés",
-        excerpt: "La rentrée scolaire s'est déroulée dans de bonnes conditions avec l'ouverture de deux nouvelles écoles maternelles.",
-        content: "",
-        category: "Éducation",
-        imageUrl: "/zekpon.jpeg",
-        author: "Service Éducation",
-        date: "2024-12-10",
-        readTime: "3 min"
-    },
-    {
-        id: 'marche-agricole',
-        title: "Nouveau marché agricole : une opportunité pour les producteurs",
-        excerpt: "L'inauguration du nouveau marché agricole offre aux agriculteurs locaux un espace moderne pour commercialiser leurs produits.",
-        content: "",
-        category: "Économie",
-        imageUrl: "/foret.jpg",
-        author: "Service Économique",
-        date: "2024-12-05",
-        readTime: "4 min"
-    },
-    {
-        id: 'campagne-vaccination',
-        title: "Campagne de vaccination gratuite pour les enfants",
-        excerpt: "Une campagne de vaccination gratuite se tiendra du 15 au 20 décembre dans tous les centres de santé de la commune.",
-        content: "",
-        category: "Santé",
-        imageUrl: "/vodoun_1.JPG",
-        author: "Service Santé",
-        date: "2024-12-01",
-        readTime: "2 min"
-    }
-];
-
-const categories = ['Tous', 'Santé', 'Culture', 'Infrastructure', 'Éducation', 'Économie', 'Environnement'];
-
-const categoryColors: Record<string, { bg: string; text: string }> = {
-    'Santé': { bg: 'bg-red-100', text: 'text-red-700' },
-    'Culture': { bg: 'bg-purple-100', text: 'text-purple-700' },
-    'Infrastructure': { bg: 'bg-blue-100', text: 'text-blue-700' },
-    'Éducation': { bg: 'bg-yellow-100', text: 'text-yellow-700' },
-    'Économie': { bg: 'bg-emerald-100', text: 'text-emerald-700' },
-    'Environnement': { bg: 'bg-green-100', text: 'text-green-700' }
-};
-
-const Actualites = () => {
+const Posts = () => {
     const [selectedCategory, setSelectedCategory] = useState('Tous');
     const [searchQuery, setSearchQuery] = useState('');
 
-    const featuredArticle = articles.find(a => a.featured);
-    const regularArticles = articles.filter(a => !a.featured);
+    const featuredArticle = posts.find(a => a.featured);
+    const regularArticles = posts.filter(a => !a.featured);
 
     const filteredArticles = regularArticles.filter(article => {
         const matchesCategory = selectedCategory === 'Tous' || article.category === selectedCategory;
@@ -174,7 +83,7 @@ const Actualites = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                {/* Featured Article */}
+                {/* Featured Post */}
                 {featuredArticle && selectedCategory === 'Tous' && !searchQuery && (
                     <div className="mb-12">
                         <h2 className="text-sm font-semibold text-emerald-600 uppercase tracking-wide mb-4">À la une</h2>
@@ -385,4 +294,4 @@ const Actualites = () => {
     );
 };
 
-export default Actualites;
+export default Posts;

@@ -6,7 +6,7 @@ const WriteToMayor = () => {
             recipientTitle="Écrire au Maire"
             recipientName="M. le Maire"
             recipientRole="Maire de la Commune d'Avrankou"
-            recipientImage="/avrankou.svg"
+            recipientImage="./avrankou.svg"
             accentColor="emerald"
         />
     );

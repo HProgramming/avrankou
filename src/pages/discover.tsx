@@ -94,7 +94,7 @@ const Discover = () => {
             <div className="relative bg-emerald-700 text-white">
                 <div className="absolute inset-0 overflow-hidden">
                     <img
-                        src="/event-avankou.jpg"
+                        src="./event-avankou.jpg"
                         alt="Avrankou"
                         className="w-full h-full object-cover opacity-20"
                     />
