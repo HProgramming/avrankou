@@ -1,4 +1,7 @@
-import {useRef} from 'react';
+
+import { useRef } from 'react';
+
+        
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 
 const History = () => {
@@ -15,6 +18,7 @@ const History = () => {
                     ref={(el) => (scrollRefs.current[0] = el)}
                     className={`w-full animate-scroll`}
                 >
+
                     <h1 className="heading-primary mb-8  text-primary">Histoirique</h1>
                     <p className={`text-lg font-medium leading-9 mb-8`}>
                         L'histoire des origines de cette commune fait état de ce que, quelques siècles plus tôt
