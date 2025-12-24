@@ -3,6 +3,7 @@ import { renderHook } from '@testing-library/react';
 import useIntersectionObserver from '../useIntersectionObserver';
 import { useRef } from 'react';
 
+
 // Mock IntersectionObserver
 class MockIntersectionObserver {
   callback: IntersectionObserverCallback;

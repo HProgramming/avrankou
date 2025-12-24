@@ -1,12 +1,21 @@
 
 import './App.css'
+import FlagLine from './components/FlagLine.tsx';
+import Footer from './components/footer.tsx';
+import Navbar from './components/navbar.tsx';
 import Home from "./pages/home.tsx";
 
 const App= ()=> {
 
   return (
-      <div className="scroll-smooth">
-        <Home></Home>
+      <div>
+        <Navbar />
+        <div className="scroll-smooth">
+          <Home />
+        </div>
+          <FlagLine height={`h-2`}/>
+
+          <Footer />
       </div>
     );
 }

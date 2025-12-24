@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+
+import {useRef} from 'react';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 
 const Economy = () => {
@@ -17,7 +18,10 @@ const Economy = () => {
                     className={`animate-scale-in animate-delay-300`}
                 >
                     <div className={`w-full rounded-4xl`}>
-                        <img src={`https://cotonou.mairie.bj/public/medias/economie-cotonou-1688213145.png`} className={``}
+
+                      <img src={`https://cotonou.mairie.bj/public/medias/economie-cotonou-1688213145.png`} className={``}
+
+                          
                              alt={`Fresque mural`}/>
                     </div>
                 </div>
@@ -32,6 +36,8 @@ const Economy = () => {
                         Quant aux activités agricoles, elles n'occupent qu'une petite frange de la population qui pratique
                         le maraîchage, soit 80% des actifs agricoles. L'artisanat et le commerce constituent la base de
                         l'économie locale de la municipalité, du fait de la présence de grands opérateurs économiques.</p>
+
+        
                 </div>
             </div>
         </div>
