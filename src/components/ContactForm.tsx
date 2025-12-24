@@ -23,7 +23,7 @@ const ContactForm = ({
     recipientTitle,
     recipientName,
     recipientRole,
-    recipientImage = '/avrankou.svg',
+    recipientImage = './avrankou.svg',
     accentColor = 'emerald'
 }: ContactFormProps) => {
     const [formData, setFormData] = useState<FormData>({

@@ -25,7 +25,7 @@ const Navbar = () => {
                         <div className="flex justify-between items-center">
                             <Link to="/" className="flex items-center space-x-2">
                                 <div className="w-32 h-20">
-                                    <img src="/republique-du-benin.png" className="h-full w-full" alt="République du Bénin"/>
+                                    <img src="./republique-du-benin.png" className="h-full w-full" alt="République du Bénin"/>
                                 </div>
                                 <div className="hidden sm:block">
                                     <div className="text-2xl font-bold text-blue-500">Avrankou</div>
