@@ -1,13 +1,13 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook } from '@testing-library/react';
 import useIntersectionObserver from '../useIntersectionObserver';
-import { useRef } from 'react';
 
-
-// Mock IntersectionObserver
-class MockIntersectionObserver {
+class MockIntersectionObserver implements IntersectionObserver {
   callback: IntersectionObserverCallback;
   elements: Set<Element>;
+  root: Document | Element | null = null;
+  rootMargin: string = '0px';
+  thresholds: ReadonlyArray<number> = [0];
 
   constructor(callback: IntersectionObserverCallback) {
     this.callback = callback;
@@ -26,7 +26,10 @@ class MockIntersectionObserver {
     this.elements.clear();
   }
 
-  // Helper method to simulate intersection
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
+
   triggerIntersection(isIntersecting: boolean) {
     const entries = Array.from(this.elements).map(element => ({
       isIntersecting,
@@ -49,7 +52,6 @@ describe('useIntersectionObserver hook', () => {
   beforeEach(() => {
     originalIntersectionObserver = window.IntersectionObserver;
 
-    // Replace IntersectionObserver with our mock
     window.IntersectionObserver = vi.fn().mockImplementation((callback) => {
       mockIntersectionObserver = new MockIntersectionObserver(callback);
       return mockIntersectionObserver;
@@ -57,7 +59,6 @@ describe('useIntersectionObserver hook', () => {
   });
 
   afterEach(() => {
-    // Restore original IntersectionObserver
     window.IntersectionObserver = originalIntersectionObserver;
     vi.restoreAllMocks();
   });
@@ -65,7 +66,7 @@ describe('useIntersectionObserver hook', () => {
   it('creates an IntersectionObserver with the correct threshold', () => {
     const refs = { current: [] };
     renderHook(() => useIntersectionObserver(refs));
-    
+
     expect(window.IntersectionObserver).toHaveBeenCalledTimes(1);
     expect(window.IntersectionObserver).toHaveBeenCalledWith(
       expect.any(Function),
@@ -74,29 +75,26 @@ describe('useIntersectionObserver hook', () => {
   });
 
   it('observes all elements in the refs array', () => {
-    // Create mock elements
     const element1 = document.createElement('div');
     const element2 = document.createElement('div');
     const refs = { current: [element1, element2] };
-    
+
     renderHook(() => useIntersectionObserver(refs));
-    
+
     expect(mockIntersectionObserver.elements.size).toBe(2);
     expect(mockIntersectionObserver.elements.has(element1)).toBe(true);
     expect(mockIntersectionObserver.elements.has(element2)).toBe(true);
   });
 
   it('adds visible class to elements when they intersect', () => {
-    // Create mock elements
     const element1 = document.createElement('div');
     const element2 = document.createElement('div');
     const refs = { current: [element1, element2] };
-    
+
     renderHook(() => useIntersectionObserver(refs));
-    
-    // Simulate intersection
+
     mockIntersectionObserver.triggerIntersection(true);
-    
+
     expect(element1.classList.contains('visible')).toBe(true);
     expect(element2.classList.contains('visible')).toBe(true);
   });
@@ -104,9 +102,9 @@ describe('useIntersectionObserver hook', () => {
   it('allows custom threshold to be passed', () => {
     const refs = { current: [] };
     const customThreshold = 0.5;
-    
+
     renderHook(() => useIntersectionObserver(refs, customThreshold));
-    
+
     expect(window.IntersectionObserver).toHaveBeenCalledWith(
       expect.any(Function),
       { threshold: customThreshold }
@@ -114,19 +112,16 @@ describe('useIntersectionObserver hook', () => {
   });
 
   it('cleans up by unobserving elements when unmounted', () => {
-    // Create mock elements
     const element1 = document.createElement('div');
     const element2 = document.createElement('div');
     const refs = { current: [element1, element2] };
-    
+
     const { unmount } = renderHook(() => useIntersectionObserver(refs));
-    
-    // Spy on unobserve method
+
     const unobserveSpy = vi.spyOn(mockIntersectionObserver, 'unobserve');
-    
-    // Unmount the hook
+
     unmount();
-    
+
     expect(unobserveSpy).toHaveBeenCalledTimes(2);
     expect(unobserveSpy).toHaveBeenCalledWith(element1);
     expect(unobserveSpy).toHaveBeenCalledWith(element2);

@@ -2,10 +2,12 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Economy from '../economy';
 
-// Mock IntersectionObserver
-class MockIntersectionObserver {
+class MockIntersectionObserver implements IntersectionObserver {
   callback: IntersectionObserverCallback;
   elements: Set<Element>;
+  root: Document | Element | null = null;
+  rootMargin: string = '0px';
+  thresholds: ReadonlyArray<number> = [0];
 
   constructor(callback: IntersectionObserverCallback) {
     this.callback = callback;
@@ -24,7 +26,10 @@ class MockIntersectionObserver {
     this.elements.clear();
   }
 
-  // Helper method to simulate intersection
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
+
   triggerIntersection(isIntersecting: boolean) {
     const entries = Array.from(this.elements).map(element => ({
       isIntersecting,
@@ -47,7 +52,6 @@ describe('Economy component', () => {
   beforeEach(() => {
     originalIntersectionObserver = window.IntersectionObserver;
 
-    // Replace IntersectionObserver with our mock
     window.IntersectionObserver = vi.fn().mockImplementation((callback) => {
       mockIntersectionObserver = new MockIntersectionObserver(callback);
       return mockIntersectionObserver;
@@ -55,7 +59,6 @@ describe('Economy component', () => {
   });
 
   afterEach(() => {
-    // Restore original IntersectionObserver
     window.IntersectionObserver = originalIntersectionObserver;
     vi.restoreAllMocks();
   });
@@ -91,27 +94,20 @@ describe('Economy component', () => {
     const { container } = render(<Economy />);
     const animatedElements = container.querySelectorAll('.animate-scroll, .animate-scale-in');
 
-    // Check that all animated elements are being observed
     expect(mockIntersectionObserver.elements.size).toBe(animatedElements.length);
   });
 
   it('adds visible class to elements when they intersect', () => {
     const { container } = render(<Economy />);
 
-    // Simulate intersection
     mockIntersectionObserver.triggerIntersection(true);
 
-    // Check that all animated elements have the visible class
     const animatedElements = container.querySelectorAll('.animate-scroll, .animate-scale-in');
     animatedElements.forEach(element => {
       expect(element).toHaveClass('visible');
     });
   });
 
-  // Skip this test for now as we're having trouble with the cleanup test
   it.skip('cleans up observer when component unmounts', () => {
-    // This test is skipped because we're having trouble with the cleanup test
-    // The component does have a cleanup function that calls unobserve for each ref,
-    // but we're having trouble testing it properly
   });
 });

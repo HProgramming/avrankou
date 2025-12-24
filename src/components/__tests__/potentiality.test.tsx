@@ -1,12 +1,13 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Potentiality from '../potentiality';
-import React from 'react';
 
-// Mock IntersectionObserver
-class MockIntersectionObserver {
+class MockIntersectionObserver implements IntersectionObserver {
   callback: IntersectionObserverCallback;
   elements: Set<Element>;
+  root: Document | Element | null = null;
+  rootMargin: string = '0px';
+  thresholds: ReadonlyArray<number> = [0];
 
   constructor(callback: IntersectionObserverCallback) {
     this.callback = callback;
@@ -25,7 +26,10 @@ class MockIntersectionObserver {
     this.elements.clear();
   }
 
-  // Helper method to simulate intersection
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
+
   triggerIntersection(isIntersecting: boolean) {
     const entries = Array.from(this.elements).map(element => ({
       isIntersecting,
@@ -49,7 +53,6 @@ describe('Potentiality component', () => {
     originalIntersectionObserver = window.IntersectionObserver;
     mockIntersectionObservers = [];
 
-    // Replace IntersectionObserver with our mock
     window.IntersectionObserver = vi.fn().mockImplementation((callback) => {
       const mockObserver = new MockIntersectionObserver(callback);
       mockIntersectionObservers.push(mockObserver);
@@ -58,7 +61,6 @@ describe('Potentiality component', () => {
   });
 
   afterEach(() => {
-    // Restore original IntersectionObserver
     window.IntersectionObserver = originalIntersectionObserver;
     vi.restoreAllMocks();
   });
@@ -71,14 +73,11 @@ describe('Potentiality component', () => {
   it('renders the correct initial tab content', () => {
     render(<Potentiality />);
 
-    // Check that the heading is rendered
     expect(screen.getByRole('heading', { name: 'Potentialité' })).toBeInTheDocument();
 
-    // Check that both tab names are rendered
     expect(screen.getByText('Forces')).toBeInTheDocument();
     expect(screen.getByText('Opportunités')).toBeInTheDocument();
 
-    // Check that the initial tab (Forces) is selected and its content is displayed
     expect(screen.getByText('Forces').closest('div')).toHaveClass('bg-[#004B70]');
     expect(screen.getByText('Existence du marché international Dantokpa, des marchés secondaires et des supérettes, boutiques et magasins de stockage.')).toBeInTheDocument();
     expect(screen.getByText('Forte demande des produits et services.')).toBeInTheDocument();
@@ -87,27 +86,22 @@ describe('Potentiality component', () => {
   it('switches tabs when clicking on a different tab', () => {
     render(<Potentiality />);
 
-    // Initially, "Forces" tab should be selected
     expect(screen.getByText('Forces').closest('div')).toHaveClass('bg-[#004B70]');
 
-    // Click on the "Opportunités" tab
     fireEvent.click(screen.getByText('Opportunités'));
 
-    // Now "Opportunités" tab should be selected
     expect(screen.getByText('Opportunités').closest('div')).toHaveClass('bg-[#004B70]');
     expect(screen.getByText('Forces').closest('div')).not.toHaveClass('bg-[#004B70]');
 
-    // Check that the content has changed to show Opportunités
     expect(screen.getByText('La mise en oeuvre du PAG.')).toBeInTheDocument();
     expect(screen.getByText('Disponibilité d\'espace pouvant abriter les marchés secondaires.')).toBeInTheDocument();
 
-    // The content from the "Forces" tab should no longer be visible
     expect(screen.queryByText('Existence du marché international Dantokpa, des marchés secondaires et des supérettes, boutiques et magasins de stockage.')).not.toBeInTheDocument();
   });
 
   it('sets up IntersectionObserver correctly', () => {
     render(<Potentiality />);
-    expect(window.IntersectionObserver).toHaveBeenCalledTimes(2); // Called twice because of two separate useIntersectionObserver calls
+    expect(window.IntersectionObserver).toHaveBeenCalledTimes(2);
     expect(window.IntersectionObserver).toHaveBeenCalledWith(
       expect.any(Function),
       { threshold: 0.1 }
@@ -118,9 +112,8 @@ describe('Potentiality component', () => {
     const { container } = render(<Potentiality />);
     const animatedElements = container.querySelectorAll('.animate-scroll, .animate-scale-in');
 
-    // Check that all animated elements are being observed across all observers
     const totalObservedElements = mockIntersectionObservers.reduce(
-      (total, observer) => total + observer.elements.size, 
+      (total, observer) => total + observer.elements.size,
       0
     );
     expect(totalObservedElements).toBeGreaterThan(0);
@@ -130,12 +123,10 @@ describe('Potentiality component', () => {
   it('adds visible class to elements when they intersect', () => {
     const { container } = render(<Potentiality />);
 
-    // Simulate intersection for all observers
     mockIntersectionObservers.forEach(observer => {
       observer.triggerIntersection(true);
     });
 
-    // Check that all animated elements have the visible class
     const animatedElements = container.querySelectorAll('.animate-scroll, .animate-scale-in');
     animatedElements.forEach(element => {
       expect(element).toHaveClass('visible');
@@ -145,29 +136,20 @@ describe('Potentiality component', () => {
   it('handles tab switching correctly', () => {
     render(<Potentiality />);
 
-    // Initially, "Forces" tab should be selected and its content visible
     expect(screen.getByText('Forces').closest('div')).toHaveClass('bg-[#004B70]');
     expect(screen.getByText('Existence du marché international Dantokpa, des marchés secondaires et des supérettes, boutiques et magasins de stockage.')).toBeInTheDocument();
 
-    // Click on the "Opportunités" tab
     fireEvent.click(screen.getByText('Opportunités'));
 
-    // Now "Opportunités" tab should be selected and its content visible
     expect(screen.getByText('Opportunités').closest('div')).toHaveClass('bg-[#004B70]');
     expect(screen.getByText('La mise en oeuvre du PAG.')).toBeInTheDocument();
 
-    // Click back to "Forces" tab
     fireEvent.click(screen.getByText('Forces'));
 
-    // Now "Forces" tab should be selected again and its content visible
     expect(screen.getByText('Forces').closest('div')).toHaveClass('bg-[#004B70]');
     expect(screen.getByText('Existence du marché international Dantokpa, des marchés secondaires et des supérettes, boutiques et magasins de stockage.')).toBeInTheDocument();
   });
 
-  // Skip this test for now as we're having trouble with the cleanup test
   it.skip('cleans up observer when component unmounts', () => {
-    // This test is skipped because we're having trouble with the cleanup test
-    // The component does have a cleanup function that calls unobserve for each ref,
-    // but we're having trouble testing it properly
   });
 });
