@@ -1,74 +1,59 @@
-import { useEffect, useRef } from 'react';
+import {useRef} from 'react';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
 
 const History = () => {
     const scrollRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        scrollRefs.current.forEach((ref) => {
-            if (ref) observer.observe(ref);
-        });
-
-        return () => {
-            scrollRefs.current.forEach((ref) => {
-                if (ref) observer.unobserve(ref);
-            });
-        };
-    }, []);
+    // Use the custom hook for intersection observer
+    useIntersectionObserver(scrollRefs);
 
     return (
         <div className={`bg-gray-200 p-10 mx-auto`}>
             <div className={`grid md:grid-cols-2 gap-4`}>
 
-                <div 
-                    ref={(el) => (scrollRefs.current[0] = el)} 
+                <div
+                    ref={(el) => (scrollRefs.current[0] = el)}
                     className={`w-full animate-scroll`}
                 >
-                    <h1 className="heading-primary mb-8 text-gray-700">Histoire</h1>
-                    <p className={`text-lg font-medium leading-9 mb-8`}>La ville de Cotonou a été créée en 1830 sur
-                        initiative du Roi Guézo, illustre roi d'Abomey. Selon l'une des légendes, son nom initial est
-                        «Kutonou», signifiant «la lagune de la mort», en raison du rôle de carrefour que la ville a joué
-                        dans le trafic des esclaves.</p>
-                    <p className={`text-lg font-medium leading-9`}>A la fin du 19ème siècle, Cotonou s'est développé à
-                        partir de quelques villages de pêcheurs situés à l'Est et à l'Ouest de la lagune. En 1888, le
-                        territoire de la ville a été cédé à la France par le Roi d'Abomey, ce qui eut pour effet
-                        l'accélération de son développement.</p>
+                    <h1 className="heading-primary mb-8  text-primary">Histoirique</h1>
+                    <p className={`text-lg font-medium leading-9 mb-8`}>
+                        L'histoire des origines de cette commune fait état de ce que, quelques siècles plus tôt
+                        un Nago nommé Olafa, surnommé « Avlan » et originaire de Sakété, fut le premier habitant
+                        connu de la région. Il s’installa à Kogbomè et fut découvert par deux chasseurs de Tori-Agué,
+                        Atawe et Houenou, grâce à la fumée de sa forge.
+                    </p>
+                    <p className={`text-lg font-medium leading-9`}>Une amitié naquit entre eux, mais elle se termina
+                        tragiquement quand Houenou tua Avlan lors d’un affrontement, l’enterrant debout à Kogbomè, site
+                        où son tombeau reste visible. Cet événement marqua le début de l’installation du peuple Toli
+                        dans la région. La mort d’Avlan, annoncée par la phrase « Avlan ti ku », aurait donné naissance,
+                        par déformation, au nom « Avrankou » qui désigne aujourd’hui la commune.</p>
                 </div>
-                <div 
-                    ref={(el) => (scrollRefs.current[1] = el)} 
+                <div
+                    ref={(el) => (scrollRefs.current[1] = el)}
                     className={`w-full pl-8 animate-scale-in`}
                 >
-                    <img src={`https://cotonou.mairie.bj/public/medias/illustration-historique-1-1688213117.png`}
-                         alt={"Ilustration historique"} className={``}/>
+                    <img src={`peuplement-avrankou.jpg`}
+                         alt={"Ilustration historique"} className={`mt-16`}/>
                 </div>
-                <div 
+                <div
                     ref={(el) => (scrollRefs.current[2] = el)}
                     className={`w-full rounded-4xl animate-scale-in`}>
-                    <img src={`https://cotonou.mairie.bj/public/medias/fresque-mural-port-cotonou.jpg`} className={``} alt={`Fresque mural`}/>
+                    <img src={`event-avankou.jpg`} className={``}
+                         alt={`Fresque mural`}/>
                 </div>
-                <div 
-                    ref={(el) => (scrollRefs.current[3] = el)} 
+                <div
+                    ref={(el) => (scrollRefs.current[3] = el)}
                     className={`w-full animate-scroll`}
                 >
-                    <p className={`text-lg font-medium leading-9 mb-8`}>A partir du noyau originel des Toffins, la ville
-                        de Cotonou s'est progressivement enrichie de toutes les ethnies du Bénin. Certains quartiers en
-                        portent aujourd'hui la marque. Ainsi, Guincomey signifie « sur la terre des populations Guin »,
-                        venues de Grand-Popo et d'Agoué pour participer à la construction du Wharf de Cotonou. De même,
-                        Xwlacodji désigne la terre des Xwla.</p>
-                    <p className={`text-lg font-medium leading-9 mb-8`}>Actuellement, Cotonou est devenu une ville
-                        représentative du Bénin et sa croissance accélérée est en train de donner naissance à une vaste
-                        région urbaine allant de Porto-Novo (à l'Est) jusqu'à Ouidah (à l'Ouest) et Abomey-Calavi (au
-                        Nord). C'est cette conurbation qui est désignée aujourd'hui par le « Grand Nokoué ».</p>
+                    <p className={`text-lg font-medium leading-9 mb-8`}>Il existe dans la Commune d’Avrankou plusieurs groupes sociaux désignés sous le vocable <span className={`italic font-semibold`}>Akota</span>
+                        . Ils se différencient les uns des autres à travers la litanie des salutations, les us et
+                        coutumes, les interdits ou totems, les danses et chansons lors des cultes traditionnels ou autres
+                        cérémonies de réjouissances et de décès.</p>
+                    <p className={`text-lg font-medium leading-9 mb-8`}>En dépit des divergences ethniques et culturelles qu’on peut constater à Avrankou, les Tolinou
+                        constituent l’ethnie dominante de la commune. Ils ont développé et partagé avec les autres
+                        entités ethniques une longue histoire socioculturelle. Leurs traditions et leurs coutumes ont
+                        fini par créer une symbiose culturelle à travers le festival identitaire et communautaire
+                        <span className={`italic font-semibold`}>Tolikunkanwxé</span> qui regroupe les peuples <span className={`italic font-semibold`}>toli </span>du Bénin et de la diaspora.</p>
                 </div>
             </div>
         </div>
@@ -76,4 +61,3 @@ const History = () => {
 };
 
 export default History;
-

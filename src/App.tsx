@@ -13,8 +13,9 @@ const App= ()=> {
         <div className="scroll-smooth">
           <Home />
         </div>
-        <Footer />
-        <FlagLine />
+          <FlagLine height={`h-2`}/>
+
+          <Footer />
       </div>
     );
 }
