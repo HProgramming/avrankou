@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- Background shield -->
+  <path d="M100 10 L180 40 L180 120 C180 160 140 180 100 190 C60 180 20 160 20 120 L20 40 Z" fill="#f0f0f0" stroke="#0056a6" stroke-width="4"/>
+
+  <!-- Decorative border -->
+  <path d="M100 20 L170 45 L170 115 C170 150 135 170 100 180 C65 170 30 150 30 115 L30 45 Z" fill="none" stroke="#008751" stroke-width="2"/>
+
+  <!-- Left palm tree - more realistic design -->
+  <!-- Curved trunk -->
+  <path d="M70 60 C68 80 70 110 72 140" stroke="#8B4513" stroke-width="4" fill="none"/>
+  <!-- Trunk texture and shading -->
+  <path d="M67 70 L73 70" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M67 80 L73 80" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M67 90 L73 90" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M67 100 L73 100" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M67 110 L73 110" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M67 120 L73 120" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M67 130 L73 130" stroke="#6B3E0C" stroke-width="1.5"/>
+  <!-- Enhanced palm fronds with gradient effect -->
+  <path d="M70 60 C60 55 45 58 40 70 C35 80 42 87 50 83" stroke="#008751" stroke-width="2" fill="none"/>
+  <path d="M70 60 C65 50 50 42 40 50 C30 55 38 67 45 67" stroke="#008751" stroke-width="2" fill="none"/>
+  <path d="M70 60 C75 50 80 42 95 47 C105 50 100 62 90 65" stroke="#008751" stroke-width="2" fill="none"/>
+  <path d="M70 60 C80 55 95 58 100 70 C105 80 98 87 90 83" stroke="#008751" stroke-width="2" fill="none"/>
+  <!-- Additional fronds for more fullness -->
+  <path d="M70 70 C60 65 45 68 40 80 C35 90 42 97 50 93" stroke="#006040" stroke-width="2" fill="none"/>
+  <path d="M70 70 C80 65 95 68 100 80 C105 90 98 97 90 93" stroke="#006040" stroke-width="2" fill="none"/>
+  <!-- Small details for texture -->
+  <path d="M55 75 L60 73" stroke="#004020" stroke-width="1" fill="none"/>
+  <path d="M85 75 L80 73" stroke="#004020" stroke-width="1" fill="none"/>
+
+  <!-- Right palm tree - more realistic design -->
+  <!-- Curved trunk -->
+  <path d="M130 60 C132 80 130 110 128 140" stroke="#8B4513" stroke-width="4" fill="none"/>
+  <!-- Trunk texture and shading -->
+  <path d="M127 70 L133 70" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M127 80 L133 80" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M127 90 L133 90" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M127 100 L133 100" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M127 110 L133 110" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M127 120 L133 120" stroke="#6B3E0C" stroke-width="1.5"/>
+  <path d="M127 130 L133 130" stroke="#6B3E0C" stroke-width="1.5"/>
+  <!-- Enhanced palm fronds with gradient effect -->
+  <path d="M130 60 C140 55 155 58 160 70 C165 80 158 87 150 83" stroke="#008751" stroke-width="2" fill="none"/>
+  <path d="M130 60 C135 50 150 42 160 50 C170 55 162 67 155 67" stroke="#008751" stroke-width="2" fill="none"/>
+  <path d="M130 60 C125 50 120 42 105 47 C95 50 100 62 110 65" stroke="#008751" stroke-width="2" fill="none"/>
+  <path d="M130 60 C120 55 105 58 100 70 C95 80 102 87 110 83" stroke="#008751" stroke-width="2" fill="none"/>
+  <!-- Additional fronds for more fullness -->
+  <path d="M130 70 C140 65 155 68 160 80 C165 90 158 97 150 93" stroke="#006040" stroke-width="2" fill="none"/>
+  <path d="M130 70 C120 65 105 68 100 80 C95 90 102 97 110 93" stroke="#006040" stroke-width="2" fill="none"/>
+  <!-- Small details for texture -->
+  <path d="M145 75 L140 73" stroke="#004020" stroke-width="1" fill="none"/>
+  <path d="M115 75 L120 73" stroke="#004020" stroke-width="1" fill="none"/>
+
+  <!-- Tam-tam (traditional drum) in the middle - enhanced with more details -->
+  <!-- Top drum surface with gradient effect -->
+  <ellipse cx="100" cy="90" rx="16" ry="11" fill="#A0522D" stroke="#000" stroke-width="1.5"/>
+  <ellipse cx="100" cy="90" rx="14" ry="9" fill="#8B4513" stroke="#000" stroke-width="0.5"/>
+
+  <!-- Drum sides with taper -->
+  <path d="M84 90 C84 95 84 115 84 120" stroke="#A0522D" stroke-width="5"/>
+  <path d="M116 90 C116 95 116 115 116 120" stroke="#A0522D" stroke-width="5"/>
+
+  <!-- Bottom drum surface with gradient effect -->
+  <ellipse cx="100" cy="120" rx="16" ry="11" fill="#A0522D" stroke="#000" stroke-width="1.5"/>
+  <ellipse cx="100" cy="120" rx="14" ry="9" fill="#8B4513" stroke="#000" stroke-width="0.5"/>
+
+  <!-- Drum details - horizontal lines -->
+  <path d="M92 80 L108 80" stroke="#000" stroke-width="2"/>
+  <path d="M92 100 L108 100" stroke="#000" stroke-width="2"/>
+  <path d="M88 85 L112 85" stroke="#000" stroke-width="1"/>
+  <path d="M88 95 L112 95" stroke="#000" stroke-width="1"/>
+  <path d="M88 115 L112 115" stroke="#000" stroke-width="1"/>
+  <path d="M88 125 L112 125" stroke="#000" stroke-width="1"/>
+
+  <!-- Decorative patterns on drum -->
+  <path d="M100 82 L100 88" stroke="#000" stroke-width="1.5"/>
+  <path d="M96 83 L104 83" stroke="#000" stroke-width="1"/>
+  <path d="M96 87 L104 87" stroke="#000" stroke-width="1"/>
+
+  <path d="M100 112 L100 118" stroke="#000" stroke-width="1.5"/>
+  <path d="M96 113 L104 113" stroke="#000" stroke-width="1"/>
+  <path d="M96 117 L104 117" stroke="#000" stroke-width="1"/>
+
+  <!-- Decorative rope/string around drum -->
+  <path d="M84 95 C88 93 112 93 116 95" stroke="#DAA520" stroke-width="1.5" fill="none"/>
+  <path d="M84 115 C88 117 112 117 116 115" stroke="#DAA520" stroke-width="1.5" fill="none"/>
+
+  <!-- Text for "AVRANKOU" -->
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#0056a6">AVRANKOU</text>
+
+  <!-- Banner for motto -->
+  <path d="M50 165 L150 165 L150 175 L50 175 Z" fill="#ffcc00" stroke="#0056a6" stroke-width="1"/>
+  <path d="M50 165 L40 170 L50 175" fill="#ffcc00" stroke="#0056a6" stroke-width="1"/>
+  <path d="M150 165 L160 170 L150 175" fill="#ffcc00" stroke="#0056a6" stroke-width="1"/>
+
+  <!-- Motto: "Unité, Travail, Paix" on banner -->
+  <text x="100" y="172" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#0056a6">Unité, Travail, Paix</text>
+
+  <!-- Stars representing excellence and aspiration -->
+  <path d="M50 50 L52 56 L58 56 L53 60 L55 66 L50 62 L45 66 L47 60 L42 56 L48 56 Z" fill="#ffcc00"/>
+  <path d="M150 50 L152 56 L158 56 L153 60 L155 66 L150 62 L145 66 L147 60 L142 56 L148 56 Z" fill="#ffcc00"/>
+
+  <!-- Circular border for unity -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#0056a6" stroke-width="2" stroke-dasharray="3,3"/>
+</svg>
